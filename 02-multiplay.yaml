@@ -1,0 +1,17 @@
+
+- name: play 1
+  hosts: web
+  tasks:
+  - name: play 1 task 1
+    ansible.builtin.debug:
+      msg: "this is play 1 and task 1"
+
+
+
+- name: play 2
+  hosts: web
+  tasks: 
+  - name: play 2 task 1
+    ansible.builtin.debug:
+      msg: "This is play 2 task 1"
+      
