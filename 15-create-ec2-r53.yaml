@@ -24,6 +24,7 @@
   - name: prnting the ec2 information
     ansible.builtin.debug:
       msg: "{{ ec2_instances }}"
+  
   - name: adding r53 records
     ansible.aws.route53:
       state: present
