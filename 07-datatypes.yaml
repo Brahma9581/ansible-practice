@@ -1,5 +1,6 @@
 - name: datatypes
   hosts: local
+  connection: local
   vars:
     course: "learning aws"
     duration: 120 
@@ -18,4 +19,3 @@
   - name: datatypes 
     ansible.builtin.debug:
       msg: "Hi iam {{ course }} duration is {{ duration }} and topics covered are {{ topics }} by using tools {{ tools }}"
-      
