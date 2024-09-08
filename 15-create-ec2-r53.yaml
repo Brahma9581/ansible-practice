@@ -26,7 +26,7 @@
       msg: "{{ ec2_instances }}"
   
   - name: creating r53 records
-    ansible.aws.route53:
+    amazon.aws.route53:
       state: present
       zone: "{{ zone }}"
       record: "{{ item.item }}.{{ zone }}"                 # mysql.daws81.online
