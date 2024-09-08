@@ -1,0 +1,11 @@
+- name: command vs shell
+  hosts: local
+  connection: local
+  tasks:
+  - name: execution of commands
+    ansible.builtin.command: ps -ef
+    register: output
+
+  - name: execution of shell
+    ansible.builtin.shell: ls -ltr > output.text
+    
