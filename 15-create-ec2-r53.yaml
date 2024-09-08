@@ -9,6 +9,7 @@
     - mysql
     - backend
     - frontend
+    zone: brahmanayudu.online
 
   tasks:
   - name: create ec2 instances
@@ -23,3 +24,12 @@
   - name: prnting the ec2 information
     ansible.builtin.debug:
       msg: "{{ ec2_instances }}"
+  - name: adding r53 records
+    ansible.aws.route53:
+      state: present
+      zone: "{{ zone }}"
+      record: "{{ item.item }}.{{ zone }}"                 # mysql.daws81.online
+      type: A
+      ttl: 1
+      value: "{{ item.instances[0].private_ip_address }}"
+    loop: "{{ ec2_instances.results }}"
