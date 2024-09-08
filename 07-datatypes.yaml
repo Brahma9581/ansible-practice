@@ -1,0 +1,21 @@
+- name: datatypes
+  hosts: local
+  vars:
+    course: "learning aws"
+    duration: 120 
+    topics:
+    - linux
+    - shell
+    - ansible
+    - teraform
+    live: true
+    tools:
+     ci: jenkins
+     cm: ansible
+     cloud: aws
+
+  tasks:
+  - name: datatypes 
+    ansible.builtin.debug:
+      msg: "Hi iam {{ course }} duration is {{ duration }} and topics covered are {{ topics }} by using tools {{ tools }}"
+      
