@@ -6,8 +6,13 @@
   - name: checking the user
     ansible.builtin.command: id expense
     register: USER 
+    ignore_errors: true
 
   - name: printing the user information
     ansible.builtin.debug:
       msg: "user info {{ USER }}"
-      
+  
+  - name: creating user
+    ansible.builtin.command: useradd expense
+    when: USER.rc !=0
+    
