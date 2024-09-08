@@ -1,0 +1,11 @@
+- name: installing package by looping
+  hosts: web
+  become: yes
+  tasks:
+  - name: installing packages
+    ansible.builtin.package:
+      name: 
+      state:
+    loop:
+    - { name: 'nginx', state: 'absent'}
+    - { name: 'httpd', state: 'present'}
